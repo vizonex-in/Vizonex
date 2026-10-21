@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Vizonex builds websites and AI agents that answer, qualify and book customers on WhatsApp, 24/7.">
+<title>Vizonex // Websites and AI agents</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2307060F'/%3E%3Cpath d='M12 14l20 36 20-36' fill='none' stroke='%2300F0FF' stroke-width='8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07060F;--panel:#0E0C1F;--ink:#E8F9FF;--dim:#8C93B8;--cy:#00F0FF;--mg:#FF2BD6;--ye:#FCEE0A;--line:#24214A}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 18px/1.55 Rajdhani,system-ui,sans-serif;overflow-x:hidden;
+background-image:linear-gradient(rgba(0,240,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.05) 1px,transparent 1px);background-size:44px 44px;padding-bottom:env(safe-area-inset-bottom,0)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(60% 50% at 85% 0%,rgba(255,43,214,.22),transparent 70%),radial-gradient(50% 45% at 0% 30%,rgba(0,240,255,.16),transparent 70%)}
+h1,h2,h3{font-family:Orbitron,Rajdhani,sans-serif;margin:0;line-height:1.05;text-transform:uppercase}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.mono{font-family:"Share Tech Mono",ui-monospace,monospace}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,6,15,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
+.logo{font:900 22px Orbitron,sans-serif;text-decoration:none;letter-spacing:.06em;color:var(--cy);text-shadow:0 0 12px rgba(0,240,255,.7)}
+.logo b{color:var(--mg);text-shadow:0 0 12px rgba(255,43,214,.7)}
+.btn{display:inline-block;font:700 15px Orbitron,sans-serif;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:14px 24px;color:#07060F;background:var(--cy);border:0;cursor:pointer;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));box-shadow:0 0 24px rgba(0,240,255,.5);transition:transform .15s,background .15s}
+.btn:hover{background:var(--ye);transform:translateY(-2px)}
+.btn.alt{background:var(--mg);color:#fff;box-shadow:0 0 24px rgba(255,43,214,.5)}
+.btn.alt:hover{background:var(--ye);color:#07060F}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ye);outline-offset:3px}
+.hero{display:grid;gap:40px;padding:56px 0 72px;grid-template-columns:1fr}
+.tag{color:var(--ye);font-size:15px;margin-bottom:16px}
+.tag::before{content:"> ";color:var(--mg)}
+h1{font-size:clamp(34px,8.4vw,74px);font-weight:900;letter-spacing:-.01em}
+.glitch{position:relative;display:inline-block;color:var(--ink)}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;overflow:hidden}
+.glitch::before{color:var(--cy);transform:translate(-3px,0);clip-path:inset(0 0 55% 0);animation:g1 3.2s infinite steps(1)}
+.glitch::after{color:var(--mg);transform:translate(3px,0);clip-path:inset(60% 0 0 0);animation:g2 2.6s infinite steps(1)}
+@keyframes g1{0%,88%,100%{transform:translate(-2px,0)}90%{transform:translate(-8px,2px)}94%{transform:translate(5px,-2px)}}
+@keyframes g2{0%,80%,100%{transform:translate(2px,0)}83%{transform:translate(9px,-2px)}92%{transform:translate(-6px,2px)}}
+.lead{color:var(--dim);font-size:20px;max-width:30em;margin:22px 0 30px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.term{background:var(--panel);border:1px solid var(--cy);box-shadow:0 0 0 1px rgba(0,240,255,.15),0 0 40px rgba(0,240,255,.2),inset 0 0 40px rgba(0,240,255,.05);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));max-width:460px;width:100%}
+.term-top{display:flex;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--cy)}
+.term-top i{color:#39FF88;font-style:normal}
+#log{height:300px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;scrollbar-width:thin;scrollbar-color:var(--mg) transparent}
+.m{max-width:88%;padding:9px 13px;font-size:16px;line-height:1.35}
+.in{background:rgba(0,240,255,.09);border-left:3px solid var(--cy);align-self:flex-start}
+.out{background:rgba(255,43,214,.14);border-right:3px solid var(--mg);align-self:flex-end;text-align:right}
+.quick{display:flex;flex-wrap:wrap;gap:8px;padding:0 14px 12px}
+.quick button{background:transparent;color:var(--cy);border:1px solid var(--cy);padding:7px 12px;font:14px "Share Tech Mono",monospace;cursor:pointer}
+.quick button:hover{background:var(--cy);color:#07060F}
+.send{display:flex;border-top:1px solid var(--line)}
+.send input{flex:1;min-width:0;background:transparent;border:0;color:var(--ink);padding:14px 16px;font:16px "Share Tech Mono",monospace}
+.send button{background:var(--mg);color:#fff;border:0;padding:0 18px;font:700 14px Orbitron,sans-serif;cursor:pointer}
+.ticker{border-block:1px solid var(--line);background:var(--panel);overflow:hidden;white-space:nowrap;padding:12px 0;color:var(--ye);font-size:16px}
+.ticker div{display:inline-block;animation:tick 28s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+section{padding:72px 0}
+h2{font-size:clamp(26px,5.4vw,44px);font-weight:800;max-width:15em}
+h2 em{font-style:normal;color:var(--mg);text-shadow:0 0 16px rgba(255,43,214,.6)}
+.grid{display:grid;gap:20px;margin-top:36px;grid-template-columns:1fr}
+.card{position:relative;background:var(--panel);border:1px solid var(--line);padding:26px;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);transition:border-color .2s,box-shadow .2s}
+.card:hover{border-color:var(--cy);box-shadow:0 0 28px rgba(0,240,255,.25)}
+.card h3{font-size:19px;color:var(--cy);margin-bottom:10px}
+.card p{margin:0;color:var(--dim)}
+.card.hot{border-color:var(--mg);box-shadow:0 0 32px rgba(255,43,214,.25)}
+.card.hot h3{color:var(--mg)}
+.price{font:900 clamp(28px,5vw,38px) Orbitron,sans-serif;color:var(--ink);margin:6px 0 2px}
+.price small{display:block;font:500 15px "Share Tech Mono",monospace;color:var(--ye);margin-top:6px}
+.card ul{list-style:none;padding:0;margin:16px 0 0}
+.card li{color:var(--dim);padding:6px 0 6px 22px;position:relative}
+.card li::before{content:">";position:absolute;left:0;color:var(--cy)}
+.steps{display:grid;gap:0;margin-top:32px;border-left:2px solid var(--cy);padding-left:24px;box-shadow:-8px 0 20px -12px var(--cy)}
+.steps div{padding:0 0 28px;position:relative}
+.steps div::before{content:"";position:absolute;left:-33px;top:6px;width:14px;height:14px;background:var(--bg);border:2px solid var(--mg);box-shadow:0 0 12px var(--mg)}
+.steps h3{font-size:18px;margin-bottom:6px}
+.steps p{margin:0;color:var(--dim)}
+.final{text-align:left;border:1px solid var(--cy);padding:40px 24px;background:linear-gradient(135deg,rgba(0,240,255,.1),rgba(255,43,214,.1));clip-path:polygon(0 0,calc(100% - 30px) 0,100% 30px,100% 100%,30px 100%,0 calc(100% - 30px))}
+.final p{color:var(--dim);margin:14px 0 26px;max-width:32em}
+footer{padding:30px 0 44px;color:var(--dim);font-size:15px;border-top:1px solid var(--line)}
+@media(min-width:820px){.hero{grid-template-columns:1.15fr .85fr;align-items:center}.grid.three{grid-template-columns:repeat(3,1fr)}.grid.two{grid-template-columns:repeat(2,1fr)}.final{padding:56px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top">VIZ<b>O</b>NEX</a><a class="btn" href="#contact">Get demo</a></div></nav>
+
+<main class="wrap" id="top">
+<div class="hero">
+<div>
+<div class="tag mono">system.online // websites + ai agents</div>
+<h1><span class="glitch" data-text="Your business never sleeps.">Your business never sleeps.</span></h1>
+<p class="lead">Vizonex builds sites and AI agents that answer, qualify and book customers on WhatsApp at 3 AM, so every lead gets a reply.</p>
+<div class="cta"><a class="btn" href="#contact">Get a free demo</a><a class="btn alt" href="#pricing">View pricing</a></div>
+</div>
+<div class="term" aria-label="Live demo of a Vizonex agent">
+<div class="term-top mono"><span>agent://smile-dental</span><i>● live</i></div>
+<div id="log" aria-live="polite"><div class="m in">Agent online. Ask me anything, or tap a command below.</div></div>
+<div class="quick" id="quick">
+<button data-q="hours">open on sunday?</button>
+<button data-q="cost">cleaning price</button>
+<button data-q="book">book checkup</button>
+</div>
+<form class="send" id="f"><input id="t" autocomplete="off" placeholder="type a message..." aria-label="Message"><button type="submit">SEND</button></form>
+</div>
+</div>
+</main>
+
+<div class="ticker mono" aria-hidden="true"><div>WHATSAPP // BOOKINGS // LEADS // FAQ // REMINDERS // HINDI + ENGLISH // 24/7 // WHATSAPP // BOOKINGS // LEADS // FAQ // REMINDERS // HINDI + ENGLISH // 24/7 // </div></div>
+
+<div class="wrap">
+<section id="services">
+<h2>One crew for your <em>site</em> and your <em>inbox</em>.</h2>
+<div class="grid three">
+<div class="card"><h3>Fast website</h3><p>Mobile-first, built to turn visitors into calls and bookings, with a clear Book now button.</p></div>
+<div class="card"><h3>AI agent</h3><p>Trained on your services, prices and timings. Replies in English and Hindi, and hands tricky chats to you.</p></div>
+<div class="card"><h3>Auto booking</h3><p>Customers pick a slot, it lands in your calendar, and a reminder goes out on WhatsApp.</p></div>
+</div>
+</section>
+
+<section id="pricing">
+<h2>Pay once. <em>Stay online.</em></h2>
+<div class="grid two">
+<div class="card hot"><h3>Launch</h3><div class="price">₹15,000–40,000<small>one-time setup</small></div>
+<ul><li>Website, one or multi-page</li><li>AI agent trained on your business</li><li>WhatsApp and chat widget</li><li>Appointment booking</li></ul></div>
+<div class="card"><h3>Care</h3><div class="price">₹3,000–8,000<small>per month</small></div>
+<ul><li>Hosting and AI usage included</li><li>Updates to prices and offers</li><li>Monthly leads report</li><li>Priority WhatsApp support</li></ul></div>
+</div>
+</section>
+
+<section id="how">
+<h2>Live in about <em>one week</em>.</h2>
+<div class="steps">
+<div><h3>Send your details</h3><p>Services, prices, timings and the questions customers ask most.</p></div>
+<div><h3>Test your demo</h3><p>We build a working version for your business. Free to try.</p></div>
+<div><h3>Go live</h3><p>You approve it, and your site and agent start taking leads the same day.</p></div>
+</div>
+</section>
+
+<section id="contact">
+<div class="final">
+<h2>See it running for <em>your</em> business.</h2>
+<p>Tell us what you do. You get a short demo video within 48 hours.</p>
+<a class="btn" href="https://wa.me/910000000000?text=Hi%20Vizonex%2C%20I%27d%20like%20a%20demo">Message on WhatsApp</a>
+</div>
+</section>
+</div>
+<footer><div class="wrap mono">© Vizonex // Websites and AI agents for local businesses in India.</div></footer>
+
+<script>
+var R={hours:["open on sunday?","Open Monday to Saturday, 9 am to 8 pm. Sundays are emergency appointments only. Want me to book one?"],
+cost:["cleaning price","Standard cleaning is ₹800. Cleaning plus polishing is ₹1,400. Want a slot this week?"],
+book:["book checkup","Done. I have tomorrow at 11:00 am or 4:30 pm. Send your name and phone number and I’ll confirm on WhatsApp."]};
+var log=document.getElementById("log");
+function add(t,c){var d=document.createElement("div");d.className="m "+c;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight}
+function say(k,u){add(u||R[k][0],"out");setTimeout(function(){add(R[k][1],"in")},550)}
+document.getElementById("quick").addEventListener("click",function(e){var k=e.target.getAttribute("data-q");if(k)say(k)});
+document.getElementById("f").addEventListener("submit",function(e){e.preventDefault();var i=document.getElementById("t"),v=i.value.trim();if(!v)return;i.value="";var s=v.toLowerCase();
+if(/sun|open|time|hour|timing/.test(s))say("hours",v);
+else if(/price|cost|clean|fee|rate/.test(s))say("cost",v);
+else if(/book|appoint|slot|visit/.test(s))say("book",v);
+else{add(v,"out");setTimeout(function(){add("Got it. Share your name and phone number and our team will reach you shortly.","in")},550)}});
+</script>
+</body>
+</html>
